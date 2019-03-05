@@ -6,6 +6,7 @@
     android:padding="2dp"
     android:layout_marginTop="5dp"
     android:singleLine="false"
+    android:lines="4"
     android:textColor="#000000"
     android:background="#a9dae6"
     android:textSize="14dp"
