@@ -3,7 +3,7 @@
     android:id="@+id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#a9dae6"
+    android:background="@drawable/spinner_borde"
     android:singleLine="false"
     android:lines="2"
     android:padding="2dp"
