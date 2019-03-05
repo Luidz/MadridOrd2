@@ -66,7 +66,7 @@ public class ActividadOrdenanzas extends AppCompatActivity {
 
                 }
                 //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,arraySpinner);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_item_lista,arraySpinner);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_multiline,arraySpinner);
                 spn_ley.setAdapter(adapter);
 
 
