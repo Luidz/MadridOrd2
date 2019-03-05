@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     android:orientation="vertical"
     tools:context=".ActividadMovilidad">
 
@@ -10,9 +11,9 @@
         android:id="@+id/spn_ley"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="false"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:singleLine="false" />
 
     <EditText
         android:id="@+id/edit_tipo"
