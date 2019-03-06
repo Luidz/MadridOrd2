@@ -105,8 +105,8 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                             int posicion = 0;
                                             ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
                                             do{
-                                                posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()));
-                                                if (posicion<-1){
+                                                posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()), posicion);
+                                                if (!(posicion==-1)){
                                                     descripcionSP.setSpan(colorDiscriminante, posicion, posicion+discriminantes.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                                                 }
                                             }while (posicion!=-1);
