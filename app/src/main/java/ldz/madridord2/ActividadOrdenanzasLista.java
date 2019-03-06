@@ -107,7 +107,8 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                             do{
                                                 posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()), posicion);
                                                 if (!(posicion==-1)){
-                                                    descripcionSP.setSpan(colorDiscriminante, posicion, posicion+discriminantes.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                                    descripcionSP.setSpan(colorDiscriminante, posicion , posicion+discriminantes[j].toString().length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                                    posicion++;
                                                 }
                                             }while (posicion!=-1);
 
