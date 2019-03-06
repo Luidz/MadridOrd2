@@ -63,9 +63,10 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                 listaAux.clear();
                 /*Bucle para coger todas las infraccionez*/
                 for (DataSnapshot data1 : dataSnapshot.getChildren()) {
+                    SpannableString cadena = new SpannableString(data1.child("descripcion").getValue().toString());
                     Infraccion infraccion = new Infraccion(
                             data1.child("tipo").getValue().toString(),
-                            new SpannableString(data1.child("descripcion").getValue().toString()),
+                            cadena,
                             //data1.child("descripcion").getValue().toString(),   HE CAMBIADO EL TIPO DESCRIPCIÓN A SPANNABLESTRING
                             data1.child("articulo").getValue().toString()
                     );
@@ -105,7 +106,7 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                             ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
                                             do{
                                                 posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()));
-                                                if (posicion!=-1){
+                                                if (posicion<-1){
                                                     descripcionSP.setSpan(colorDiscriminante, posicion, posicion+discriminantes.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                                                 }
                                             }while (posicion!=-1);

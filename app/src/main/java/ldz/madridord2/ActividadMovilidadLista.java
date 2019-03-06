@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -60,12 +61,13 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                 listaAux.clear();
                 /*Bucle para coger todas las infraccionez*/
                 for (DataSnapshot data1 : dataSnapshot.getChildren()) {
+                    SpannableString cadena = new SpannableString(data1.child("descripcion").getValue().toString());
                     Infraccion infraccion = new Infraccion(
                             data1.child("clave").getValue().toString(),
                             data1.child("articulo").getValue().toString(),
                             data1.child("euros").getValue().toString(),
                             data1.child("puntos").getValue().toString(),
-                            data1.child("descripcion").getValue().toString()
+                            cadena
                     );
                     listaAux.add(infraccion);
                 }
@@ -83,7 +85,10 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                                 String articuloAux = infraccion.getArticulo();
                                 String eurosAux = infraccion.getEuros();
                                 String puntosAux = infraccion.getPuntos();
-                                String descripcionAux = infraccion.getDescripcion();
+
+                                //AÑADIDO DE SPANNABLSTRING
+                                SpannableString descripcionSP =  infraccion.getDescripcion();
+                                String descripcionAux = infraccion.getDescripcion().toString();
 
                                 if (descripcion.trim().replace(" ", "").length() == 0 &&
                                         clave.trim().replace(" ", "").length() == 0 &&
@@ -143,7 +148,8 @@ public class ActividadMovilidadLista extends AppCompatActivity {
 
                                     infraccion.setPuntos(puntosAux);
 
-                                    infraccion.setDescripcion(descripcionAux);
+                                    //infraccion.setDescripcion(descripcionAux);
+                                    infraccion.setDescripcion(new SpannableString(descripcionAux));
                                     listaInfra.add(infraccion);
                                 }
                             }
