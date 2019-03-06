@@ -1,5 +1,7 @@
 package ldz.madridord2;
 
+import android.text.SpannableString;
+
 import java.io.Serializable;
 
 /**
@@ -12,13 +14,15 @@ public class Infraccion implements Serializable {
     private String articulo;
     private String euros;
     private String puntos;
-    private String descripcion;
+    //private String descripcion;
+    //STRING SPANNABLE
+    private SpannableString descripcion;
     private String tipo;
     private String norma;
 
     public Infraccion(){}
 
-    public Infraccion(String tipo, String descripcion, String articulo){
+    public Infraccion(String tipo, SpannableString descripcion, String articulo){
         this.tipo = tipo;
         this.descripcion = descripcion;
         this.articulo = articulo;
@@ -26,7 +30,7 @@ public class Infraccion implements Serializable {
 
 
 
-    public Infraccion(int id, String clave, String articulo, String euros, String puntos, String descripcion){
+    public Infraccion(int id, String clave, String articulo, String euros, String puntos, SpannableString descripcion){
         this.id = id;
         this.clave = clave;
         this.articulo = articulo;
@@ -35,7 +39,7 @@ public class Infraccion implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Infraccion(String clave, String articulo, String euros, String puntos, String descripcion){
+    public Infraccion(String clave, String articulo, String euros, String puntos, SpannableString descripcion){
         this.clave = clave;
         this.articulo = articulo;
         this. euros = euros;
@@ -82,11 +86,11 @@ public class Infraccion implements Serializable {
         this.puntos = puntos;
     }
 
-    public String getDescripcion() {
+    public SpannableString getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String hecho) {
+    public void setDescripcion(SpannableString descripcion) {
         this.descripcion = descripcion;
     }
 

@@ -1,10 +1,14 @@
 package ldz.madridord2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -61,7 +65,8 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                 for (DataSnapshot data1 : dataSnapshot.getChildren()) {
                     Infraccion infraccion = new Infraccion(
                             data1.child("tipo").getValue().toString(),
-                            data1.child("descripcion").getValue().toString(),
+                            new SpannableString(data1.child("descripcion").getValue().toString()),
+                            //data1.child("descripcion").getValue().toString(),   HE CAMBIADO EL TIPO DESCRIPCIÓN A SPANNABLESTRING
                             data1.child("articulo").getValue().toString()
                     );
                     infraccion.setNorma(norma);
@@ -76,8 +81,9 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                         if (infraccion != null) {
                             Boolean coincide = true;
                             String[] discriminantes;
-
-                            String descripcionAux = infraccion.getDescripcion();
+                            //**********************************************************
+                            String descripcionAux = infraccion.getDescripcion().toString();
+                            SpannableString descripcionSP = new SpannableString(infraccion.getDescripcion());
                             String articuloAux = infraccion.getArticulo();
                             String tipoAux = infraccion.getTipo();
 
@@ -93,8 +99,16 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                         if (!(tildes(descripcionAux).toUpperCase().contains(tildes(discriminantes[j]).toUpperCase()))) {
                                             coincide = false;
                                         }else{
-                                            // SUSTITUCIÓN DE LOS DISCRIMINANTES POR LA MISMA RODEADA DE CUATRO ZZZZ PARA CAMBIAR EL COLOR
-                                            // EN EL ADAPTADOR.
+                                            // SUSTITUCIÓN DE LOS DISCRIMINANTES POR EL DISCRIMINANTE CON EL COLOR CAMBIADO DENTRO DEL TEXTO
+                                            String aux = tildes(descripcionAux).toUpperCase();
+                                            int posicion = 0;
+                                            ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
+                                            do{
+                                                posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()));
+                                                if (posicion!=-1){
+                                                    descripcionSP.setSpan(colorDiscriminante, posicion, posicion+discriminantes.length, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                                }
+                                            }while (posicion!=-1);
 
                                         }
 
@@ -127,7 +141,8 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                 Sancion sancion = new Sancion(ley, tipoAux, articuloAux);
                                 infraccion.setEuros(sancion.Calcular());
 
-                                infraccion.setDescripcion(descripcionAux);
+                                //infraccion.setDescripcion(descripcionAux);
+                                infraccion.setDescripcion(descripcionSP);
 
                                 listaInfra.add(infraccion);
                             }
