@@ -1,11 +1,14 @@
 package ldz.madridord2;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -76,7 +79,6 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                         for (int i=0; i < listaAux.size(); i++){
                             infraccion = new Infraccion();
                             infraccion = listaAux.get(i);
-                            // Node nodo = infracciones.item(i);
                             if (infraccion != null){
                                 Boolean coincide = true;
                                 String[] discriminantes;
@@ -86,7 +88,7 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                                 String eurosAux = infraccion.getEuros();
                                 String puntosAux = infraccion.getPuntos();
 
-                                //AÑADIDO DE SPANNABLSTRING
+                                //AÑADIDO DE SPANNABLESTRING
                                 SpannableString descripcionSP =  infraccion.getDescripcion();
                                 String descripcionAux = infraccion.getDescripcion().toString();
 
@@ -102,6 +104,18 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                                         for (int j = 0; j < discriminantes.length; j++) {
                                             if (!(tildes(descripcionAux).toUpperCase().contains(tildes(discriminantes[j]).toUpperCase()))) {
                                                 coincide = false;
+                                            }else {
+                                                // SUSTITUCIÓN DE LOS DISCRIMINANTES POR EL DISCRIMINANTE CON EL COLOR CAMBIADO DENTRO DEL TEXTO
+                                                String aux = tildes(descripcionAux).toUpperCase();
+                                                int posicion = 0;
+                                                do{
+                                                    posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()), posicion);
+                                                    if (!(posicion==-1)){
+                                                        ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
+                                                        descripcionSP.setSpan(colorDiscriminante, posicion , posicion+discriminantes[j].toString().length(), Spanned.SPAN_COMPOSING);
+                                                        posicion++;
+                                                    }
+                                                }while (posicion!=-1);
                                             }
                                         }
                                     }
@@ -149,7 +163,8 @@ public class ActividadMovilidadLista extends AppCompatActivity {
                                     infraccion.setPuntos(puntosAux);
 
                                     //infraccion.setDescripcion(descripcionAux);
-                                    infraccion.setDescripcion(new SpannableString(descripcionAux));
+                                    //infraccion.setDescripcion(new SpannableString(descripcionAux));
+                                    infraccion.setDescripcion(descripcionSP);
                                     listaInfra.add(infraccion);
                                 }
                             }
