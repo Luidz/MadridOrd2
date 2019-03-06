@@ -103,15 +103,15 @@ public class ActividadOrdenanzasLista extends AppCompatActivity {
                                             // SUSTITUCIÓN DE LOS DISCRIMINANTES POR EL DISCRIMINANTE CON EL COLOR CAMBIADO DENTRO DEL TEXTO
                                             String aux = tildes(descripcionAux).toUpperCase();
                                             int posicion = 0;
-                                            ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
                                             do{
                                                 posicion = aux.indexOf(tildes(discriminantes[j].toUpperCase()), posicion);
                                                 if (!(posicion==-1)){
+                                                    ForegroundColorSpan colorDiscriminante = new ForegroundColorSpan(Color.RED);
                                                     descripcionSP.setSpan(colorDiscriminante, posicion , posicion+discriminantes[j].toString().length(), Spanned.SPAN_COMPOSING);
                                                     posicion++;
+                                                    Log.i ("POSICION: --> ", " " + posicion);
                                                 }
-                                                // BORRAR CUANDO SOLUCIONE
-                                                Log.i ("POSICION: --> ", " " + posicion);
+                                                if (posicion==-1) Log.i ("POSICION: --> ", " " + posicion);
                                             }while (posicion!=-1);
 
                                         }
