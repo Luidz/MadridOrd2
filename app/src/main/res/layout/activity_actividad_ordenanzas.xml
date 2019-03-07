@@ -5,7 +5,18 @@
     android:layout_height="match_parent"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    tools:context=".ActividadMovilidad">
+    tools:context=".ActividadMovilidad"
+    android:layout_marginHorizontal="10dp">
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pulse sobre la norma para elejir"
+        android:textAlignment="center"
+        android:padding="15dp"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde"/>
 
     <Spinner
         android:id="@+id/spn_ley"
@@ -16,29 +27,60 @@
         android:background="@android:color/transparent"
         android:singleLine="false" />
 
+    <TextView
+        android:id="@+id/txt_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde"/>
+
     <EditText
         android:id="@+id/edit_tipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Tipo"
+        android:hint="Leve, Grave, Muy Grave"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/txt_articulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Artículo"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde"/>
 
     <EditText
         android:id="@+id/edit_articulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Artículo"
+        android:hint="75.1, 5 h), 32.3"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/text_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde"/>
 
     <EditText
         android:id="@+id/edit_descripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Descripción"
-        android:inputType="textMultiLine" />
+        android:hint="Consumir, tenencia, alcohol, drogas, verter..."
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btn_buscar"

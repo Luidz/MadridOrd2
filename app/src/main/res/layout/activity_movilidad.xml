@@ -4,15 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ActividadMovilidad">
+    tools:context=".ActividadMovilidad"
+    android:layout_marginHorizontal="5dp">
+
+    <TextView
+        android:id="@+id/text_clave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clave"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde"/>
 
     <EditText
         android:id="@+id/edit_clave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Clave"
+        android:hint="150, 8, 301"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/text_articulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Artículo"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde" />
 
     <EditText
         android:id="@+id/edit_articulo"
@@ -22,21 +43,51 @@
         android:hint="Artículo"
         android:inputType="textPersonName" />
 
+    <TextView
+        android:id="@+id/text_euros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sanción"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde" />
+
     <EditText
         android:id="@+id/edit_euros"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Sanción"
+        android:hint="200, 500, 100"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/text_puntos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntos"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde" />
 
     <EditText
         android:id="@+id/edit_puntos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Puntos"
+        android:hint="0, 3, 4"
         android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/text_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:background="@drawable/textview_borde" />
 
     <EditText
         android:id="@+id/edit_descripcion"

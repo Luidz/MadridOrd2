@@ -29,5 +29,5 @@
         android:layout_height="wrap_content"
         android:text="Leyes, ordenanzas varias."
         android:textAlignment="center"
-        android:padding="15dp"/>
+        android:padding="25dp"/>
 </LinearLayout>
