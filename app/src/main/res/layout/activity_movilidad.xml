@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Artículo"
+        android:hint="40 lsv, oms, 76.6, d)"
         android:inputType="textPersonName" />
 
     <TextView
