@@ -4,18 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="20dp"
     tools:context=".Principal">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Elija consulta"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:padding="25dp"/>
 
     <Button
         android:id="@+id/btn_movilidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ord. Movilidad" />
+        android:text="Ord. Movilidad Sostenible"
+        android:padding="25dp"/>
 
     <Button
         android:id="@+id/btn_lopsc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Leyes, ordenanzas varias."
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:padding="15dp"/>
 </LinearLayout>
